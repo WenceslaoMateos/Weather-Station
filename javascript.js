@@ -47,23 +47,14 @@ function add_icons() {
         weather_data.daily[1].weather[0].icon,
         weather_data.daily[2].weather[0].icon,
         weather_data.daily[3].weather[0].icon,
-        weather_data.daily[4].weather[0].icon,
-        weather_data.daily[5].weather[0].icon,
-        weather_data.daily[6].weather[0].icon,
-        weather_data.daily[7].weather[0].icon,
     ];
     for (i = 0; i < 3; i++) {
-        //let img = document.createElement("img");
-        //img.classList.add('img_square_small');
-        //img.src = 'img/weather/' + daily_icon[i] + '.png';
         $("#icon_plus_" + (i + 1)).html("");
         $("#icon_plus_" + (i + 1)).append(
             $("<img />")
                 .addClass("img_square_small")
                 .attr({ src: "img/weather/" + daily_icon[i] + ".png" })
         );
-        //document.getElementById(aux + (i + 1)).innerHTML = "";
-        //document.getElementById(aux + (i + 1)).appendChild(img);
     }
 }
 
@@ -73,28 +64,16 @@ function add_min_max() {
         weather_data.daily[1].temp.min,
         weather_data.daily[2].temp.min,
         weather_data.daily[3].temp.min,
-        weather_data.daily[4].temp.min,
-        weather_data.daily[5].temp.min,
-        weather_data.daily[6].temp.min,
-        weather_data.daily[7].temp.min,
     ];
     let daily_max = [
         weather_data.daily[1].temp.max,
         weather_data.daily[2].temp.max,
         weather_data.daily[3].temp.max,
-        weather_data.daily[4].temp.max,
-        weather_data.daily[5].temp.max,
-        weather_data.daily[6].temp.max,
-        weather_data.daily[7].temp.max,
     ];
     let daily_pop = [
         weather_data.daily[1].pop,
         weather_data.daily[2].pop,
         weather_data.daily[3].pop,
-        weather_data.daily[4].pop,
-        weather_data.daily[5].pop,
-        weather_data.daily[6].pop,
-        weather_data.daily[7].pop,
     ];
     for (let i = 0; i < 3; i++) {
         $("#min_max_plus_" + (i + 1)).html(
@@ -103,10 +82,6 @@ function add_min_max() {
         $("#humedad_plus_" + (i + 1)).html(
             Math.round(daily_pop[i] * 10) * 10 + "%"
         );
-        /*document.getElementById(aux1 + (i + 1)).innerHTML =
-      Math.round(daily_max[i]) + "°C / " + Math.round(daily_min[i]) + "°C";*/
-        /*document.getElementById(aux2 + (i + 1)).innerHTML =
-      Math.round(daily_pop[i] * 10) * 10 + "%";*/
     }
 }
 
@@ -122,7 +97,20 @@ function fill_today() {
     let date_unix = weather_data.current.dt;
     let fecha = new Date(date_unix * 1000);
 
-    let month = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    let month = [
+        "Enero",
+        "Febrero",
+        "Marzo",
+        "Abril",
+        "Mayo",
+        "Junio",
+        "Julio",
+        "Agosto",
+        "Septiembre",
+        "Octubre",
+        "Noviembre",
+        "Diciembre",
+    ];
     let day_num = fecha.getDate();
     let mes = month[fecha.getMonth()];
     let temp = Math.round(weather_data.current.temp);
@@ -201,6 +189,8 @@ hofiElement.onclick = () => {
     call_weather();
 };
 
+let flag = 0;
+
 // This function obtain the JSON as letiable and call "appendData" to show it
 function call_weather() {
     fetch(
@@ -216,10 +206,16 @@ function call_weather() {
             add_min_max();
             fill_today();
             showTime();
-            setInterval(showTime(), 15000);
+            if (flag === 0) {
+                setInterval(call_weather, 600000);
+                setInterval(showTime(), 15000);
+                setInterval(add_days(), 600000);
+                setInterval(add_icons(), 600000);
+                setInterval(add_min_max(), 600000);
+                setInterval(fill_today(), 600000);
+                flag++;
+            }
         });
 }
-
-setInterval(call_weather, 600000);
 
 call_weather();
