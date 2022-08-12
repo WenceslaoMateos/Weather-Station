@@ -135,6 +135,7 @@ function showTime() {
         formatter = new Intl.DateTimeFormat("es-AR", options);
     let date = formatter.format(new Date());
     clock.innerText = date;
+    console.log("si");
 }
 
 // Fade the image that is selected
@@ -208,11 +209,11 @@ function call_weather() {
             showTime();
             if (flag === 0) {
                 setInterval(call_weather, 600000);
-                setInterval(showTime(), 15000);
-                setInterval(add_days(), 600000);
-                setInterval(add_icons(), 600000);
-                setInterval(add_min_max(), 600000);
-                setInterval(fill_today(), 600000);
+                setInterval(showTime, 15000);
+                setInterval(add_days, 600000);
+                setInterval(add_icons, 600000);
+                setInterval(add_min_max, 600000);
+                setInterval(fill_today, 600000);
                 flag++;
             }
         });
