@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="estilos.css" rel="stylesheet" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+  <script src="./assets/jquery-3.6.0.min.js"></script>
+  <script src="./assets/bootstrap/js/bootstrap.bundle.js"></script>
+  <title>Estación Metereológica de Susy</title>
+</head>
+
+<body>
+  <div class="ml-0 mr-5">
+    <div class="row m-0 p-0">
+      <div class="col-11 m-0 p-0">
+        <div class="container m-0 p-0">
+          <div class="column m-0 p-0">
+            <div class="col text_top m-0 p-0" id="today_temp"></div>
+            <div class="col text_top m-0 p-0" id="today_city"></div>
+            <div class="col text_top m-0 p-0" id="today_max_min"></div>
+            <div class="container">
+              <div class="row">
+                <div class="col m-0 p-0" id="today_icon">
+                  <img id="img_now" />
+                </div>
+                <div class="col reloj m-0 p-0" id="clock"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-1 m-0 p-0">
+        <div class="container m-0 p-0">
+          <div class="row m-0 p-0">
+            <div class="col m-0 p-0">
+              <img id="susy" class="img_round" src="img\susy.png"role="button" />
+            </div>
+            <div class="col m-0 p-0">
+              <img id="hofi" class="img_round" src="img\hofi.png" role="button" />
+            </div>
+            <div class="col m-0 p-0">
+              <img id="wen" class="img_round" src="img\wen.png" role="button" />
+            </div>
+            <div class="col m-0 p-0">
+              <img id="juli" class="img_round" src="img\juli_guido.png" role="button" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-0 p-0">
+    <div class="row m-0 p-0">
+      <div class="col m-0 p-0">
+        <div class="container m-0 p-0">
+          <div class="column m-0 p-0">
+            <div class="col text_bot m-0 p-0" id="day_plus_1"></div>
+            <div class="col m-0 p-0" id="icon_plus_1"></div>
+            <div class="col text_bot m-0 p-0" id="min_max_plus_1"></div>
+            <div class="col text_bot m-0 p-0" id="yuebe_plus_1">
+              ¿Yueberá?
+            </div>
+            <div class="col text_bot m-0 p-0" id="humedad_plus_1"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col m-0 p-0">
+        <div class="container m-0 p-0">
+          <div class="column">
+            <div class="col text_bot m-0 p-0" id="day_plus_2"></div>
+            <div class="col m-0 p-0" id="icon_plus_2"></div>
+            <div class="col text_bot m-0 p-0" id="min_max_plus_2"></div>
+            <div class="col text_bot m-0 p-0" id="yuebe_plus_2">
+              ¿Yueberá?
+            </div>
+            <div class="col text_bot m-0 p-0" id="humedad_plus_2"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col m-0 p-0">
+        <div class="container m-0 p-0">
+          <div class="column m-0 p-0">
+            <div class="col text_bot m-0 p-0" id="day_plus_3"></div>
+            <div class="col m-0 p-0" id="icon_plus_3"></div>
+            <div class="col text_bot m-0 p-0" id="min_max_plus_3"></div>
+            <div class="col text_bot m-0 p-0" id="yuebe_plus_3">
+              ¿Yueberá?
+            </div>
+            <div class="col text_bot m-0 p-0" id="humedad_plus_3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="javascript.js"></script>
+</body>
+
+</html>
